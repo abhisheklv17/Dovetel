@@ -1,0 +1,1876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dovetel Communications | Enterprise Networking Solutions</title>
+    <meta name="description" content="Bangalore's #1 ISP for Fiber Broadband, Leased Lines & SD-WAN">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- GSAP (For Advanced Animations) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    
+    <!-- Particle.js (Floating Background Effects) -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <style>
+        /* ===== Global Styles ===== */
+        :root {
+            --primary: #0066ff;
+            --primary-dark: #0044cc;
+            --secondary: #0f0f1a;
+            --accent: #00ccff;
+            --light: #f8f9fa;
+            --dark: #121212;
+            --dark-gray: #1e1e2d;
+            --text-light: #ffffff;
+            --text-gray: #b0b0b0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--text-light);
+            background-color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--accent);
+            transition: all 0.3s ease;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .section-title h2 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--text-gray);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 16px 36px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.95rem;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 102, 255, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* ===== Header ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(15, 15, 26, 0.95);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            backdrop-filter: blur(10px);
+        }
+        
+        header.scrolled {
+            padding: 15px 0;
+            background-color: rgba(10, 10, 20, 0.98);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 80px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(90deg, #0066ff, #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 35px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* ===== Hero Section ===== */
+        .hero {
+            height: 100vh;
+            min-height: 800px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.9), rgba(0, 0, 20, 0.95)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+        
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 25px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            color: var(--text-light);
+            opacity: 0.9;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        /* Floating Network Animation */
+        .network-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.2;
+        }
+        
+        .node {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--accent);
+            transition: all 0.5s ease;
+        }
+        
+        .connection {
+            position: absolute;
+            height: 2px;
+            background: rgba(0, 204, 255, 0.3);
+            transform-origin: left center;
+            transition: all 0.5s ease;
+        }
+        
+        /* ===== About Section ===== */
+        .about {
+            background-color: var(--dark-gray);
+            position: relative;
+        }
+        
+        .about:before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 204, 255, 0.15) 0%, rgba(0, 204, 255, 0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+        
+        .about-text p {
+            margin-bottom: 25px;
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+        
+        .about-features {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            background: rgba(0, 102, 255, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 102, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover .feature-icon {
+            background: var(--primary);
+            color: white;
+            transform: rotate(10deg);
+        }
+        
+        .feature-text h4 {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .feature-text p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: all 0.5s ease;
+        }
+        
+        .about-image:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-image:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.3) 0%, rgba(0, 204, 255, 0.1) 100%);
+        }
+        
+        /* ===== Services Section ===== */
+        .services {
+            position: relative;
+            background: linear-gradient(to bottom, var(--dark), var(--dark-gray));
+        }
+        
+        .services:before {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 204, 255, 0.15) 0%, rgba(0, 204, 255, 0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card {
+            background: var(--dark-gray);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            z-index: 1;
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 204, 255, 0.05) 100%);
+            z-index: -1;
+        }
+        
+        .service-card.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 102, 255, 0.3);
+        }
+        
+        .service-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .service-content p {
+            color: var(--text-gray);
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+        
+        .service-features {
+            margin-bottom: 30px;
+        }
+        
+        .service-features li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+        }
+        
+        .service-features li i {
+            color: var(--accent);
+            margin-right: 12px;
+            font-size: 0.9rem;
+        }
+        
+        /* ===== Network Animation Section ===== */
+        .network-demo {
+            background: linear-gradient(rgba(10, 10, 20, 0.95), rgba(10, 10, 20, 0.95)), url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .network-visualization {
+            width: 100%;
+            height: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .network-node {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 30px var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-weight: bold;
+            font-size: 0.8rem;
+            transition: all 0.5s ease;
+        }
+        
+        .network-connection {
+            position: absolute;
+            height: 2px;
+            background: rgba(0, 204, 255, 0.5);
+            transform-origin: left center;
+            transition: all 0.5s ease;
+        }
+        
+        .network-pulse {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 15px white;
+            opacity: 0;
+        }
+        
+        /* ===== Stats Section ===== */
+        .stats {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .stat-item {
+            padding: 50px 20px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-10px);
+        }
+        
+        .stat-item:after {
+            content: '';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .stat-item:last-child:after {
+            display: none;
+        }
+        
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .stat-label {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* ===== Contact Section ===== */
+        .contact {
+            background-color: var(--dark-gray);
+            position: relative;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(0, 102, 255, 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover .contact-icon {
+            background: var(--primary);
+            color: white;
+            transform: rotate(10deg);
+        }
+        
+        .contact-details h3 {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .contact-details p, 
+        .contact-details a {
+            color: var(--text-gray);
+            transition: color 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .contact-details a:hover {
+            color: var(--accent);
+        }
+        
+        .contact-form {
+            background: var(--dark);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            transform: perspective(1000px) rotateY(5deg);
+            transition: all 0.5s ease;
+        }
+        
+        .contact-form:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 16px 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(0, 102, 255, 0.05);
+            box-shadow: 0 0 0 3px rgba(0, 204, 255, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 180px;
+            resize: vertical;
+        }
+        
+        /* ===== Footer ===== */
+        footer {
+            background-color: #0a0a14;
+            padding: 100px 0 40px;
+            position: relative;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .footer-col p {
+            color: var(--text-gray);
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .footer-links li {
+            margin-bottom: 18px;
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: var(--text-gray);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(8px);
+        }
+        
+        .footer-links a i {
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            color: var(--text-gray);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-8px) rotate(5deg);
+            box-shadow: 0 10px 20px rgba(0, 102, 255, 0.3);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-gray);
+            font-size: 1rem;
+        }
+        
+        /* ===== Responsive Design ===== */
+        @media (max-width: 1200px) {
+            .about-content {
+                gap: 50px;
+            }
+            
+            .contact-container {
+                gap: 50px;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                order: 1;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .stat-item:nth-child(2):after {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 15px;
+            }
+            
+            .logo img {
+                height: 60px;
+            }
+            
+            .logo-text {
+                font-size: 1.6rem;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 85%;
+                max-width: 350px;
+                height: 100vh;
+                background: var(--secondary);
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
+                transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+                padding: 120px 40px 40px;
+                z-index: 1000;
+                backdrop-filter: blur(10px);
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            nav ul li {
+                margin: 0;
+            }
+            
+            nav ul li a {
+                font-size: 1.1rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            section {
+                padding: 80px 0;
+            }
+            
+            .hero {
+                min-height: 700px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .stat-item:after {
+                display: none;
+            }
+            
+            .stat-item {
+                padding: 30px 20px;
+            }
+            
+            .stat-number {
+                font-size: 3rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .contact-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* ===== Animations ===== */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+        
+        .animate-pulse {
+            animation: pulse 3s infinite;
+        }
+        
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        /* ===== Network Animation Styles ===== */
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        @keyframes movePacket {
+            0% { opacity: 0; transform: scale(0.5); }
+            10% { opacity: 1; transform: scale(1); }
+            90% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0.5); }
+        }
+        
+        /* ===== Dark/Light Mode Toggle ===== */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(30deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/abhisheklv17/Dovetel/main/logo.png" alt="Dovetel Communications Logo">
+                <div class="logo-text">DOVETEL</div>
+            </div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#network">Network</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div id="particles-js"></div>
+        <div class="network-animation" id="network-animation"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate__animated animate__fadeInDown">BUILD. CONNECT. SUCCEED.</h1>
+                <p class="animate__animated animate__fadeIn">Bangalore's Most Reliable Internet Service Provider</p>
+                <div class="hero-btns animate__animated animate__fadeInUp">
+                    <a href="#contact" class="btn">Request a Call Back</a>
+                    <a href="#contact" class="btn btn-outline">Get a Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Dovetel</h2>
+                <p>We are Bangalore's leading provider of enterprise-grade networking solutions</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Your Trusted Network Partner</h3>
+                    <p>Dovetel Communications is driven by a vision to build reliable digital infrastructure for modern living. We provide managed broadband, enterprise leased lines, Wi-Fi, SD-WAN, and smart apartment services with professional support and SLA-backed performance.</p>
+                    <p>Founded in Bangalore, we understand the unique connectivity needs of India's tech capital and deliver solutions that keep homes and businesses always connected.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Secure Connections</h4>
+                                <p>Enterprise-grade security protocols for all services</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>24/7 Support</h4>
+                                <p>Dedicated NOC and support team always available</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>High Performance</h4>
+                                <p>Optimized networks for maximum speed and reliability</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-rupee-sign"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Transparent Pricing</h4>
+                                <p>No hidden charges or surprise fees</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image animate-float">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3" alt="Dovetel Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Comprehensive networking solutions tailored for your needs</p>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3" alt="Fiber Broadband">
+                    </div>
+                    <div class="service-content">
+                        <h3>FIBER BROADBAND (FTTH)</h3>
+                        <p>Ultra-fast internet for homes and apartments with dedicated fiber connections.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Unlimited high-speed plans</li>
+                            <li><i class="fas fa-check"></i> Optical fiber to each flat/villa</li>
+                            <li><i class="fas fa-check"></i> Centralized controller with VLAN support</li>
+                            <li><i class="fas fa-check"></i> Symmetrical upload/download speeds</li>
+                        </ul>
+                        <a href="#contact" class="btn">Enquire Now</a>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3" alt="Leased Line">
+                    </div>
+                    <div class="service-content">
+                        <h3>INTERNET LEASED LINE (ILL)</h3>
+                        <p>Dedicated connectivity solution for businesses that demand reliability.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Dedicated 1:1 bandwidth</li>
+                            <li><i class="fas fa-check"></i> Static IP & guaranteed uptime</li>
+                            <li><i class="fas fa-check"></i> Custom plans for startups and enterprises</li>
+                            <li><i class="fas fa-check"></i> SLA-backed performance</li>
+                        </ul>
+                        <a href="#contact" class="btn">Enquire Now</a>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3" alt="Managed SD-WAN">
+                    </div>
+                    <div class="service-content">
+                        <h3>MANAGED SD-WAN</h3>
+                        <p>Intelligent networking that combines multiple ISPs for ultimate reliability.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Combine multiple ISPs</li>
+                            <li><i class="fas fa-check"></i> Application-aware routing</li>
+                            <li><i class="fas fa-check"></i> Centralized dashboard</li>
+                            <li><i class="fas fa-check"></i> Real-time monitoring</li>
+                        </ul>
+                        <a href="#contact" class="btn">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Network Demo Section -->
+    <section class="network-demo" id="network">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Network Infrastructure</h2>
+                <p>Advanced technology powering your connectivity</p>
+            </div>
+            <div class="network-visualization" id="network-visualization">
+                <!-- Network animation will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" id="stat1">98%</div>
+                    <div class="stat-label">Uptime Guarantee</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="stat2">500+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="stat3">24/7</div>
+                    <div class="stat-label">Support</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="stat4">50+</div>
+                    <div class="stat-label">Network Nodes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Contact us for inquiries, support, or to request a quote</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Our Office</h3>
+                            <p>Flydesk Workspace, Banaswadi,<br>5th Cross Road, Vijaya Bank Colony,<br>Banaswadi, Bengaluru, Karnataka</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Call Us</h3>
+                            <p><a href="tel:+919353714381">+91 93537 14381</a></p>
+                            <p>Mon-Sun: 8:00 AM - 10:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Us</h3>
+                            <p><a href="mailto:abhishek@dovetel.in">abhishek@dovetel.in</a></p>
+                            <p>Response within 24 hours</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>WhatsApp</h3>
+                            <p><a href="https://wa.me/919353714381">+91 93537 14381</a></p>
+                            <p>Instant support during business hours</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" name="service" class="form-control" required>
+                                <option value="">Select a service</option>
+                                <option value="ftth">Fiber Broadband (FTTH)</option>
+                                <option value="leased-line">Internet Leased Line</option>
+                                <option value="sd-wan">Managed SD-WAN</option>
+                                <option value="wifi">Managed Wi-Fi</option>
+                                <option value="voip">VOIP Telephony</option>
+                                <option value="smart-apartment">Smart Apartment Solutions</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <div class="logo">
+                        <img src="https://raw.githubusercontent.com/abhisheklv17/Dovetel/main/logo.png" alt="Dovetel Communications Logo" style="height: 70px;">
+                        <div class="logo-text" style="margin-top: 15px;">DOVETEL</div>
+                    </div>
+                    <p>Bangalore's trusted Internet Service Provider delivering reliable broadband, leased lines, and smart networking solutions since 2015.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#network"><i class="fas fa-chevron-right"></i> Network</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Fiber Broadband</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Leased Lines</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Managed SD-WAN</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Managed Wi-Fi</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> VOIP Telephony</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Banaswadi, Bengaluru</li>
+                        <li><i class="fas fa-phone-alt"></i> +91 93537 14381</li>
+                        <li><i class="fas fa-envelope"></i> abhishek@dovetel.in</li>
+                        <li><i class="fab fa-whatsapp"></i> WhatsApp Support</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Dovetel Communications. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle" id="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mainNav = document.getElementById('main-nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 100) {
+                document.getElementById('header').classList.add('scrolled');
+            } else {
+                document.getElementById('header').classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if(mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        if(contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will contact you shortly.');
+                this.reset();
+            });
+        }
+        
+        // Initialize Particle.js
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#00ccff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#0066ff",
+                    "opacity": 0.2,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 0.5
+                        }
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+        
+        // Network Animation in Hero
+        function createHeroNetwork() {
+            const container = document.getElementById('network-animation');
+            const width = container.offsetWidth;
+            const height = container.offsetHeight;
+            
+            // Create nodes
+            for(let i = 0; i < 25; i++) {
+                const node = document.createElement('div');
+                node.className = 'node';
+                node.style.left = `${Math.random() * width}px`;
+                node.style.top = `${Math.random() * height}px`;
+                container.appendChild(node);
+                
+                // Float animation
+                gsap.to(node, {
+                    y: (Math.random() - 0.5) * 40,
+                    x: (Math.random() - 0.5) * 40,
+                    duration: 3 + Math.random() * 4,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut"
+                });
+            }
+            
+            // Create connections
+            const nodes = document.querySelectorAll('.node');
+            nodes.forEach(node1 => {
+                nodes.forEach(node2 => {
+                    if(Math.random() > 0.9) { // Only connect some nodes
+                        const x1 = parseFloat(node1.style.left) + 6;
+                        const y1 = parseFloat(node1.style.top) + 6;
+                        const x2 = parseFloat(node2.style.left) + 6;
+                        const y2 = parseFloat(node2.style.top) + 6;
+                        
+                        const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+                        const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+                        
+                        const connection = document.createElement('div');
+                        connection.className = 'connection';
+                        connection.style.width = `${length}px`;
+                        connection.style.left = `${x1}px`;
+                        connection.style.top = `${y1}px`;
+                        connection.style.transform = `rotate(${angle}deg)`;
+                        container.appendChild(connection);
+                        
+                        // Pulse animation for connections
+                        gsap.to(connection, {
+                            opacity: 0.1 + Math.random() * 0.3,
+                            duration: 2 + Math.random() * 3,
+                            repeat: -1,
+                            yoyo: true,
+                            ease: "sine.inOut"
+                        });
+                    }
+                });
+            });
+            
+            // Create moving pulses
+            setInterval(() => {
+                const pulse = document.createElement('div');
+                pulse.className = 'network-pulse';
+                
+                // Random start position
+                const startNode = nodes[Math.floor(Math.random() * nodes.length)];
+                pulse.style.left = `${parseFloat(startNode.style.left) + 6}px`;
+                pulse.style.top = `${parseFloat(startNode.style.top) + 6}px`;
+                container.appendChild(pulse);
+                
+                // Random end position
+                const endNode = nodes[Math.floor(Math.random() * nodes.length)];
+                const endX = parseFloat(endNode.style.left) + 6;
+                const endY = parseFloat(endNode.style.top) + 6;
+                
+                // Animate pulse
+                const duration = 2000 + Math.random() * 2000;
+                
+                gsap.to(pulse, {
+                    x: endX - parseFloat(pulse.style.left),
+                    y: endY - parseFloat(pulse.style.top),
+                    opacity: 0,
+                    duration: duration / 1000,
+                    ease: "power1.out",
+                    onComplete: () => pulse.remove()
+                });
+            }, 300);
+        }
+        
+        // Network Visualization
+        function createNetworkVisualization() {
+            const container = document.getElementById('network-visualization');
+            const width = container.offsetWidth;
+            const height = container.offsetHeight;
+            
+            // Create central hub
+            const hub = document.createElement('div');
+            hub.className = 'network-node';
+            hub.style.left = `${width/2 - 12}px`;
+            hub.style.top = `${height/2 - 12}px`;
+            hub.textContent = 'HUB';
+            container.appendChild(hub);
+            
+            // Float animation for hub
+            gsap.to(hub, {
+                y: -10,
+                duration: 3,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            });
+            
+            // Create nodes
+            const nodeCount = 8;
+            const nodes = [];
+            
+            for(let i = 0; i < nodeCount; i++) {
+                const angle = (i / nodeCount) * Math.PI * 2;
+                const radius = Math.min(width, height) * 0.35;
+                const x = width/2 + Math.cos(angle) * radius - 12;
+                const y = height/2 + Math.sin(angle) * radius - 12;
+                
+                const node = document.createElement('div');
+                node.className = 'network-node';
+                node.style.left = `${x}px`;
+                node.style.top = `${y}px`;
+                node.textContent = `N${i+1}`;
+                container.appendChild(node);
+                nodes.push(node);
+                
+                // Float animation for nodes
+                gsap.to(node, {
+                    y: (Math.random() - 0.5) * 20,
+                    x: (Math.random() - 0.5) * 20,
+                    duration: 3 + Math.random() * 2,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut"
+                });
+                
+                // Create connections to hub
+                const connection = document.createElement('div');
+                connection.className = 'network-connection';
+                connection.style.width = `${radius}px`;
+                connection.style.left = `${width/2}px`;
+                connection.style.top = `${height/2}px`;
+                connection.style.transform = `rotate(${angle}rad)`;
+                container.appendChild(connection);
+                
+                // Animate connections
+                gsap.to(connection, {
+                    opacity: 0.3 + Math.random() * 0.2,
+                    duration: 2 + Math.random(),
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut"
+                });
+            }
+            
+            // Create data packets
+            setInterval(() => {
+                const packet = document.createElement('div');
+                packet.className = 'data-packet';
+                
+                // Start at random node
+                const startNode = nodes[Math.floor(Math.random() * nodes.length)];
+                const startX = parseFloat(startNode.style.left) + 12;
+                const startY = parseFloat(startNode.style.top) + 12;
+                packet.style.left = `${startX}px`;
+                packet.style.top = `${startY}px`;
+                container.appendChild(packet);
+                
+                // End at hub
+                const endX = width/2;
+                const endY = height/2;
+                
+                // Animate packet
+                const duration = 1000 + Math.random() * 1000;
+                
+                gsap.to(packet, {
+                    x: endX - startX,
+                    y: endY - startY,
+                    opacity: 0,
+                    scale: 0.5,
+                    duration: duration / 1000,
+                    ease: "power1.out",
+                    onComplete: () => packet.remove()
+                });
+            }, 500);
+        }
+        
+        // Animate stats
+        function animateStats() {
+            const stat1 = document.getElementById('stat1');
+            const stat2 = document.getElementById('stat2');
+            const stat3 = document.getElementById('stat3');
+            const stat4 = document.getElementById('stat4');
+            
+            animateValue(stat1, 0, 98, 2000, '%');
+            animateValue(stat2, 0, 500, 2000, '+');
+            animateValue(stat4, 0, 50, 2000, '+');
+        }
+        
+        function animateValue(element, start, end, duration, suffix = '') {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                element.innerHTML = Math.floor(progress * (end - start) + start + suffix;
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        // GSAP Scroll Animations
+        function initScrollAnimations() {
+            // Animate service cards
+            gsap.utils.toArray('.service-card').forEach((card, i) => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 80%",
+                        toggleActions: "play none none none"
+                    },
+                    y: 50,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: i * 0.1,
+                    ease: "back.out(1)"
+                });
+            });
+            
+            // Animate about section
+            gsap.from('.about-text', {
+                scrollTrigger: {
+                    trigger: '.about',
+                    start: "top 70%",
+                    toggleActions: "play none none none"
+                },
+                x: -50,
+                opacity: 0,
+                duration: 1,
+                ease: "power2.out"
+            });
+            
+            gsap.from('.about-image', {
+                scrollTrigger: {
+                    trigger: '.about',
+                    start: "top 70%",
+                    toggleActions: "play none none none"
+                },
+                x: 50,
+                opacity: 0,
+                duration: 1,
+                ease: "power2.out"
+            });
+            
+            // Animate stats
+            gsap.to('.stats', {
+                scrollTrigger: {
+                    trigger: '.stats',
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                onStart: animateStats
+            });
+        }
+        
+        // Dark/Light Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            themeToggle.innerHTML = document.body.classList.contains('light-mode') ? 
+                '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        });
+        
+        // Initialize everything when page loads
+        window.addEventListener('load', () => {
+            createHeroNetwork();
+            createNetworkVisualization();
+            initScrollAnimations();
+        });
+    </script>
+</body>
+</html>
